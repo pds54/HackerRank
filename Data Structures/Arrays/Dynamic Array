@@ -1,0 +1,31 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    int n, q, lastAnswer = 0;
+    
+    cin >> n >> q;
+    vector<int> seqList[n];
+    
+    for(int i = 0; i < q; i++) {
+        int query, x, y;
+        cin >> query >> x >> y;
+        
+        int seq = ((x ^ lastAnswer) % n);
+        
+        if(query == 1) {
+            seqList[seq].push_back(y);
+        }
+        else {
+            int answer = seqList[seq].size();
+            lastAnswer = seqList[seq][y % answer];
+            cout << lastAnswer << endl;
+        }
+    }
+    return 0;
+}
