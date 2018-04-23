@@ -44,20 +44,20 @@ using namespace std;
 
 
 int main(){
-    int n;
+    int n; //integer
     cin >> n;
-    vector<int> arr(n);
-    for(int arr_i = 0;arr_i < n;arr_i++){
+    vector<int> arr(n); //array of integers
+    for(int arr_i = 0; arr_i < n; arr_i++){ //input integers in array
        cin >> arr[arr_i];
     }
     
-    for(int i = 0, j = n - 1; i < j; i++, j--) {
+    for(int i = 0, j = n - 1; i < j; i++, j--) { //swap integers while i is less than j
         int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
     }
     
-    for(int k = 0; k < n; k++) {
+    for(int k = 0; k < n; k++) { //output array
         cout << arr[k] << " ";
     }
     return 0;
