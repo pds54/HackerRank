@@ -1,0 +1,33 @@
+/*
+Input Format
+Input will contain four integers - a, b, c, d, one in each line.
+
+Output Format
+Print the greatest of the four integers.
+*/
+
+#include <iostream>
+#include <cstdio>
+using namespace std;
+
+int max_of_four(int a, int b, int c, int d) {
+    if(a > b && a > c && a > d) { //if a is the largest
+        return a;
+    }
+    else if(b > a && b > c && b > d) { //if b is the largest
+        return b;
+    }
+    else if(c > a && c > b && c > d) { //if c is the largest
+        return c;
+    }
+    return d;
+}
+
+int main() {
+    int a, b, c, d;
+    scanf("%d %d %d %d", &a, &b, &c, &d); //scanning
+    int ans = max_of_four(a, b, c, d); //call function and return largest integer
+    printf("%d", ans); //output answer
+    
+    return 0;
+}
