@@ -1,3 +1,35 @@
+/*
+Context
+Given a 2D Array, :
+1 1 1 0 0 0
+0 1 0 0 0 0
+1 1 1 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+We define an hourglass in to be a subset of values with indices falling in this pattern in 's graphical
+representation:
+a b c
+  d
+e f g
+There are 16 hourglasses in A, and an hourglass sum is the sum of an hourglass' values.
+
+Task
+Calculate the hourglass sum for every hourglass in A, then print the maximum hourglass sum.
+
+Input Format
+There are 6 lines of input, where each line contains 6 space-separated integers describing 2D Array A;
+every value in A will be in the inclusive range of -9 to 9.
+
+Constraints
+-9 <= A[i][j] <= 9
+0 <= i, j <= 5
+
+Output Format
+Print the largest (maximum) hourglass sum found in A.
+*/
+
+
 #include <map>
 #include <set>
 #include <list>
@@ -25,30 +57,30 @@ using namespace std;
 
 
 int main(){
-    int max = -63;
-    vector< vector<int> > arr(6,vector<int>(6));
-    for(int arr_i = 0;arr_i < 6;arr_i++){
-       for(int arr_j = 0;arr_j < 6;arr_j++){
+    int max = -63; //minimum based on constraints
+    vector< vector<int> > arr(6,vector<int>(6)); //double vector
+    for(int arr_i = 0; arr_i < 6; arr_i++){
+       for(int arr_j = 0; arr_j < 6; arr_j++){ //input integers for every i and j in array
           cin >> arr[arr_i][arr_j];
        }
     }
     
     for(int i = 0; i < 4; i++) {
-        for(int j = 0; j < 4; j++) {
+        for(int j = 0; j < 4; j++) { //while not passing constraints
             int total = 0;
             
-            int top = arr[i][j] + arr[i][j + 1] + arr[i][j + 2];
-            int mid = arr[i + 1][j + 1];
-            int bottom = arr[i + 2][j] + arr[i + 2][j + 1] + arr[i + 2][j + 2];
+            int top = arr[i][j] + arr[i][j + 1] + arr[i][j + 2]; //count the top row
+            int mid = arr[i + 1][j + 1]; //count the middle
+            int bottom = arr[i + 2][j] + arr[i + 2][j + 1] + arr[i + 2][j + 2]; //count the bottom row
             
-            total = top + mid + bottom;
+            total = top + mid + bottom; //total hourglass
             
-            if(total > max) {
+            if(total > max) { //if hourglass is greater than max
                 max = total;
             }
         }
     }
     
-    cout << max;
+    cout << max; //output max
     return 0;
 }
