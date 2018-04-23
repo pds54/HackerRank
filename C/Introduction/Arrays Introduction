@@ -1,0 +1,30 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    int arr[n];
+    
+    for(int i = 0; i < n; i++) {
+        int j;
+        cin >> j;
+        arr[i] = j;
+    }
+    
+    for(int l = 0, m = n - 1; l < m; l++, m--) {
+        int temp;
+        temp = arr[l];
+        arr[l] = arr[m];
+        arr[m] = temp;
+    }
+
+    for(int k = 0; k < n; k++) {
+        cout << arr[k] << " ";
+    }
+    return 0;
+}
