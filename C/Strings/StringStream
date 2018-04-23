@@ -1,3 +1,11 @@
+/*
+Input Format
+The first and only line consists of n integers separated by commas.
+
+Output Format
+Print the integers after parsing it.
+*/
+
 #include <sstream>
 #include <vector>
 #include <iostream>
@@ -9,8 +17,8 @@ vector<int> parseInts(string str) {
    int temp;
    char ch;
     
-   while(ss >> temp) {
-       answer.push_back(temp);
+   while(ss >> temp) { //search for integers
+       answer.push_back(temp); //add to array
        ss >> ch;
    }
    return answer;
@@ -19,8 +27,8 @@ vector<int> parseInts(string str) {
 int main() {
     string str;
     cin >> str;
-    vector<int> integers = parseInts(str);
-    for(int i = 0; i < integers.size(); i++) {
+    vector<int> integers = parseInts(str); //call function and return array
+    for(int i = 0; i < integers.size(); i++) { //output array
         cout << integers[i] << "\n";
     }
     
