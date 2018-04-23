@@ -1,3 +1,17 @@
+/*
+Task
+Read 3 numbers from stdin and print their sum to stdout.
+
+Input Format
+A single line containing 3 space-separated integers: a, b, and c.
+
+Constraints
+1 <= a, b, c <= 1000
+
+Output Format
+Print the sum of the three numbers on a single line
+*/
+
 #include <cmath>
 #include <cstdio>
 #include <vector>
@@ -6,10 +20,10 @@
 using namespace std;
 
 int main() {
-    int a, b, c;
+    int a, b, c; //numbers
     
-    cin >> a >> b >> c;
-    a = a + b + c;
-    cout << a << endl;
+    cin >> a >> b >> c; //input
+    a = a + b + c; //sum
+    cout << a << endl; //output
     return 0;
 }
